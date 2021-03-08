@@ -7,11 +7,6 @@
   box-sizing: border-box;
 }
 
-:root{
-  --color-suave: #F6F9FC;
-  --green-hover: lightgreen;
-  --coral-hover: #fe696a;
-}
 
 body{
   font-family: 'Roboto', sans-serif;
@@ -40,7 +35,7 @@ nav, header{
 }
 
 .hover:hover {
-  color: var(--coral-hover);
+  color: #fe696a;
   transition: 500ms all;
   cursor: pointer;
 }
@@ -48,8 +43,9 @@ nav, header{
 
 header{
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 40px;
-  background-color: var(--color-suave);
+  background-color: #F6F9FC;
   padding: 40px 9% 80px ;
 }
 
@@ -67,7 +63,7 @@ header div{
 }
 
 nav div{
-  border-left: 2.5px solid var(--color-suave);
+  border-left: 2.5px solid #F6F9FC;
   display: flex;
   align-items: center;
 }
@@ -97,13 +93,11 @@ nav div > input {
 }
 
 nav div:nth-child(1) i{
-  position: absolute;
   left: 5px;
   bottom: 30%;
 }
 
 nav div:nth-child(2) i{
-
   padding-right: 12px;
 }
 
@@ -114,7 +108,7 @@ nav div:nth-child(3) > span:nth-child(1){
 
 nav div:nth-child(3) > span:nth-child(2),span:nth-child(3){
   padding: 30px;
-  border-left: 2.5px solid var(--color-suave);
+  border-left: 2.5px solid #F6F9FC;
   font-size: 30px;
 }
 
@@ -129,12 +123,21 @@ nav div:nth-child(3) > span:nth-child(2),span:nth-child(3){
 }
 
 .grid .item-grid{
-  z-index: 1;
+  /* height: 100%; */
 }
 
-.grid .item-grid img{
+.grid .item-grid .p-relative{
+  height: 85%;
+}
+
+.grid .item-grid .p-relative > div:first-child{
+  height: 100%;
+}
+
+.grid .item-grid .p-relative div > img{
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 .grid .p-relative:hover div:first-child:before{
@@ -147,6 +150,13 @@ nav div:nth-child(3) > span:nth-child(2),span:nth-child(3){
   background-color: rgba(0,0,0,0.4);
   cursor: pointer;
   z-index: 1;
+  transition-property: background-color;
+  transition-duration: 3s;
+}
+
+.grid .p-relative:hover{
+  background-color: red;
+  transition: 300ms all;
 }
 
 .grid .p-relative div:first-child:hover + .content-icon,.content-icon:hover{
@@ -162,19 +172,20 @@ nav div:nth-child(3) > span:nth-child(2),span:nth-child(3){
   border-radius: 50%;
   background-color: white;
   z-index: 100;
+  transition: 3s all;
 }
 
 .content-icon:hover{
-  color: var(--coral-hover);
+  color: #fe696a;
   transition: 1s all;
   cursor: pointer;
 }
 
 .grid .item-grid > div:nth-child(2){
-  margin-top: 30px;
+  padding-top: 15px;
   font-weight: 700;
   padding-left: 20px;
-  margin-bottom: 30px;
+  height: 15%;
 }
 
 @media only screen and (max-width: 1286px){
@@ -196,7 +207,7 @@ nav div:nth-child(3) > span:nth-child(2),span:nth-child(3){
 
 @media only screen and (max-width: 536px){
   .grid{
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(1,1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
 }
